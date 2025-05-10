@@ -43,7 +43,7 @@
       console.log("Features to send:", features); // ✅ Debug: log features
 
       try {
-        const res = await fetch('http://127.0.0.1:5000/predict', {
+        const res = await fetch('https://breast-cancer-predictor-ml.onrender.com/predict', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ features })
