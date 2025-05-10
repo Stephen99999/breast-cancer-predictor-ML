@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import numpy as np
 import joblib
 from flask_cors import CORS
@@ -8,7 +8,9 @@ CORS(app)  # Allow frontend access
 
 model = joblib.load('model/logistic_regression_top_features.pkl')
 scaler = joblib.load('model/scaler.pkl')
-
+@app.route('/')
+def home():
+    return render_template('index.html')
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.json['features']
